@@ -21,7 +21,7 @@ public class SqorrBaseTest {
 	//public static WebDriver driver;
 	public String defaultProps = "defaultenv.properties";
 	
-	public static ExtentReports extent;
+	//public static ExtentReports extent;
 	public static ExtentTest test;
 	
 

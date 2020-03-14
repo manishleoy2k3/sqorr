@@ -26,8 +26,8 @@ public class SqorrPlayBaseTest extends SqorrBaseTest {
 	public void setUp() throws Exception {
 		logger.info("********************Before Suite Starts (SqorrPlayBaseTest)****************");
 		//bmProxy.proxyStart();
-		extent = new ExtentReports(System.getProperty("user.dir")+"/test-output/"+"DMG_Analytics"+"_"+config.getProperty("device")+"_"+config.getProperty("platformName")+".html",true);
-		extent.loadConfig(new File((System.getProperty("user.dir")+"/src/test/resources/environments/extent-config.xml")));
+		//extent = new ExtentReports(System.getProperty("user.dir")+"/test-output/"+"DMG_Analytics"+"_"+config.getProperty("device")+"_"+config.getProperty("platformName")+".html",true);
+		//extent.loadConfig(new File((System.getProperty("user.dir")+"/src/test/resources/environments/extent-config.xml")));
 		logger.info("********************Before Suite Ends (SqorrPlayBaseTest)****************");
 	}	
 	
@@ -35,8 +35,8 @@ public class SqorrPlayBaseTest extends SqorrBaseTest {
 	public void tearDown() throws Exception {
 		logger.info("********************After Suite Starts****************");
 		driver.quit();
-		extent.flush();
-		extent.close();
+		//extent.flush();
+		//extent.close();
 		//new HtmlLogger().createHtmlAnalyticsLogFile(result);
 		logger.info("********************After Suite Ends****************");
 	}

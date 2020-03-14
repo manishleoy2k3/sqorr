@@ -52,6 +52,7 @@ public class SqorrMobileDriver implements SqorrDriver, WebDriver{
 	private int elementWaitTime = 40;
 	private static int DEFAULT_TIMEOUT = 500;
 
+	//File app= new File("lib\\PlaySqorr");
 	private static int MIN_DEFAULT_TIMEOUT=5;
 	private static String platformUsed;	
 	public SqorrMobileDriver(Config config) {
@@ -71,24 +72,31 @@ public class SqorrMobileDriver implements SqorrDriver, WebDriver{
 	 *             Prepares the environment that tests to be run on
 	 */
 	public void loadApplication() throws MalformedURLException {
+		capabilities.setCapability("browserName","chrome");
 		capabilities.setCapability("platformName",config.getProperty("platformName"));
 		capabilities.setCapability("platformVersion",config.getProperty("platformVersion"));
 		capabilities.setCapability("deviceName",config.getProperty("deviceName"));
 		capabilities.setCapability("udid", config.getProperty("udid"));
-		capabilities.setCapability("bundleId", config.getProperty("bundleId"));
+		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator1");
 		capabilities.setCapability("newCommandTimeout",20000);
+		
+		capabilities.setCapability("appPackage", "com.sport.playsqorr");
+		capabilities.setCapability("appActivity", "com.sport.playsqorr.views.OnBoarding");
+		//capabilities.setCapability("app", app.getAbsolutePath());
+		
 		//capabilities.setCapability("autoDismissAlerts", true);
-		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
+		//capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
 		
 		URL remoteUrl = new URL("http://"+ config.getProperty("host") +"/wd/hub");
 		logger.debug("Remote URL is " + remoteUrl);
 		
 		if (config.getProperty("platformName").contains("iOS"))
-			driver = new IOSDriver(remoteUrl, capabilities);
+			driver = new IOSDriver<WebElement>(remoteUrl, capabilities);
 		else
-			driver = new AndroidDriver(remoteUrl, capabilities);
+			driver = new AndroidDriver<WebElement>(remoteUrl, capabilities);
 		
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
+		//driver.get("https://google.com");
 	}
 
 	
