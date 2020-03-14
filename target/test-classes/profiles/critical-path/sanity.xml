@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="KMS Sanity Test Suite" verbose="1">
+	<listeners>
+		<listener class-name="com.sephora.helpme.core.listeners.TestListner"></listener>
+	</listeners>
+	<test name="KMS Sanity" preserve-order="true" group-by-instances="true">
+		<classes>
+			<class name="com.sephora.helpme.test.desktop.SanityTest" />
+		</classes>
+	</test>
+</suite>
+

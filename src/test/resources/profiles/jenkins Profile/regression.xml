@@ -1,0 +1,18 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="KMS Regression Test Suite" verbose="1">
+	<listeners>
+		<listener class-name="com.sephora.helpme.core.listeners.TestListner"></listener>
+	</listeners>
+	<test name="KMS Regression Props Verification">
+		<!-- <classes>
+			<class name="com.sephora.helpme.test.desktop.analytics.test.SephoraHelpMeDesktopPropsTest" />
+			<class name="com.sephora.helpme.test.desktop.analytics.test.SephoraHelpMeDesktopVarsTest" />
+			<class name="com.sephora.helpme.test.desktop.analytics.test.SephoraHelpMeDesktopEventTest" />
+		</classes> -->
+		
+		<packages>
+			<package name="com.sephora.helpme.test.desktop.analytics.test.*" />
+		</packages>
+	</test>
+</suite>
