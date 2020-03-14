@@ -1,20 +1,17 @@
 package com.sqorr.play.test.base;
 
-import java.io.File;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-import com.relevantcodes.extentreports.ExtentReports;
 import com.sqorr.play.core.driver.SqorrMobileDriver;
 
 public class SqorrPlayBaseTest extends SqorrBaseTest {
 
 	static DesiredCapabilities capabilities = new DesiredCapabilities();
-	protected SqorrMobileDriver driver = new SqorrMobileDriver(config);
+	public SqorrMobileDriver driver = new SqorrMobileDriver(config);
 	
 	private static final Logger logger = LogManager.getLogger(SqorrPlayBaseTest.class.getName());
 		

@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.io.FileUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -33,6 +32,7 @@ import org.testng.Assert;
 
 import com.sqorr.play.core.constants.TestConstants;
 import com.sqorr.play.core.utils.Config;
+import com.sun.jna.platform.FileUtils;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.TouchAction;
@@ -52,9 +52,9 @@ public class SqorrMobileDriver implements SqorrDriver, WebDriver{
 	private int elementWaitTime = 40;
 	private static int DEFAULT_TIMEOUT = 500;
 
-	//File app= new File("lib\\PlaySqorr");
 	private static int MIN_DEFAULT_TIMEOUT=5;
-	private static String platformUsed;	
+	private static String platformUsed;
+	
 	public SqorrMobileDriver(Config config) {
 		this.config = config;
 	}
@@ -457,25 +457,22 @@ public class SqorrMobileDriver implements SqorrDriver, WebDriver{
 		executor.executeScript("arguments[0].click();", element);
 	}
 
-	public String takeSnapShotAndRetPath(WebDriver driver) throws Exception {
-		logger.debug("INTO METHOD->Fn_TakeSnapShotAndRetPath");
-		String FullSnapShotFilePath = "";
-
-		try {
-			logger.debug("Take Screen shot started");
-			File scrFile = ((TakesScreenshot) driver)
-					.getScreenshotAs(OutputType.FILE);
-			String sFilename = null;
-			sFilename = "Screenshot-" + getDateTime() + ".png";
-			FullSnapShotFilePath = System.getProperty("user.dir")
-					+ "\\Output\\ScreenShots\\" + sFilename;
-			FileUtils.copyFile(scrFile, new File(FullSnapShotFilePath));
-		} catch (Exception e) {
-
-		}
-
-		return FullSnapShotFilePath;
-	}
+	/*
+	 * public String takeSnapShotAndRetPath(WebDriver driver) throws Exception {
+	 * logger.debug("INTO METHOD->Fn_TakeSnapShotAndRetPath"); String
+	 * FullSnapShotFilePath = "";
+	 * 
+	 * try { logger.debug("Take Screen shot started"); File scrFile =
+	 * ((TakesScreenshot) driver) .getScreenshotAs(OutputType.FILE); String
+	 * sFilename = null; sFilename = "Screenshot-" + getDateTime() + ".png";
+	 * FullSnapShotFilePath = System.getProperty("user.dir") +
+	 * "\\Output\\ScreenShots\\" + sFilename; FileUtils.copyFile(scrFile, new
+	 * File(FullSnapShotFilePath)); } catch (Exception e) {
+	 * 
+	 * }
+	 * 
+	 * return FullSnapShotFilePath; }
+	 */
 
 	/**
 	 * Returns current Date Time
@@ -561,12 +558,12 @@ public class SqorrMobileDriver implements SqorrDriver, WebDriver{
 		.executeScript("window.scrollTo(0,0);");
 	}
 
-	public void takeScreenShot(String fileName) throws Exception{
-		String folder = "logs/screen/";
-		WebDriver driver1 = new Augmenter().augment(driver);
-		File file  = ((TakesScreenshot)driver1).getScreenshotAs(OutputType.FILE);
-		FileUtils.copyFile(file, new File(folder+fileName+".jpg"));
-	}
+	/*
+	 * public void takeScreenShot(String fileName) throws Exception{ String folder =
+	 * "logs/screen/"; WebDriver driver1 = new Augmenter().augment(driver); File
+	 * file = ((TakesScreenshot)driver1).getScreenshotAs(OutputType.FILE);
+	 * FileUtils.copyFile(file, new File(folder+fileName+".jpg")); }
+	 */
 
 	
 	public String getPlatformUsed() {
