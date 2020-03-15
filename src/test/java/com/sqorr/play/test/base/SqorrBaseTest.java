@@ -10,8 +10,6 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.relevantcodes.extentreports.ExtentReports;
-import com.relevantcodes.extentreports.ExtentTest;
 import com.sqorr.play.core.constants.TestConstants;
 import com.sqorr.play.core.utils.Config;
 import com.sqorr.play.core.utils.ExcelReader;
@@ -22,7 +20,7 @@ public class SqorrBaseTest {
 	public String defaultProps = "defaultenv.properties";
 	
 	//public static ExtentReports extent;
-	public static ExtentTest test;
+	//public static ExtentTest test;
 	
 
 	public static Config config = new Config();
@@ -55,23 +53,20 @@ public class SqorrBaseTest {
 	/**
 	 * @throws Exception
 	 */
-	@DataProvider(name = "sqorrTestData")
-	public Object[][] sqorrDataProvider(Method testMethod) throws Exception {
-		String sheetName = testMethod.getName();
-		String filePath = "src/test/resources/"
-				+ testMethod
-						.getDeclaringClass()
-						.getName()
-						.replace(TestConstants.DOT, TestConstants.FORWARD_SLASH)
-				+ ".xlsx";
-		logger.debug("Test data is loaded from file " + filePath
-				+ " and the sheet is " + sheetName);
-		Object[][] testObjArray = ExcelReader.getTableArray(filePath,
-				testMethod.getName());
-
-		return (testObjArray);
-
-	}
+	/*
+	 * @DataProvider(name = "sqorrTestData") public Object[][]
+	 * sqorrDataProvider(Method testMethod) throws Exception { String sheetName =
+	 * testMethod.getName(); String filePath = "src/test/resources/" + testMethod
+	 * .getDeclaringClass() .getName() .replace(TestConstants.DOT,
+	 * TestConstants.FORWARD_SLASH) + ".xlsx";
+	 * logger.debug("Test data is loaded from file " + filePath +
+	 * " and the sheet is " + sheetName); Object[][] testObjArray =
+	 * ExcelReader.getTableArray(filePath, testMethod.getName());
+	 * 
+	 * return (testObjArray);
+	 * 
+	 * }
+	 */
 
 	public String getRunningDevice() {
 		config.loadProps("src/test/resources/profiles/defaultenv.properties");

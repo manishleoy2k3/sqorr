@@ -10,11 +10,11 @@ import com.sqorr.play.core.driver.SqorrMobileDriver;
 
 public class SqorrPlayBaseTest extends SqorrBaseTest {
 
-	static DesiredCapabilities capabilities = new DesiredCapabilities();
-	public SqorrMobileDriver driver = new SqorrMobileDriver(config);
-	
 	private static final Logger logger = LogManager.getLogger(SqorrPlayBaseTest.class.getName());
-		
+	
+	static DesiredCapabilities capabilities;// = new DesiredCapabilities();
+	public SqorrMobileDriver driver;// = new SqorrMobileDriver(config);
+			
 	/**
 	 * @throws Exception
 	 *         setup function loads the driver and environment and baseUrl for the tests
@@ -22,6 +22,9 @@ public class SqorrPlayBaseTest extends SqorrBaseTest {
 	@BeforeSuite(alwaysRun = true)
 	public void setUp() throws Exception {
 		logger.info("********************Before Suite Starts (SqorrPlayBaseTest)****************");
+		capabilities = new DesiredCapabilities();
+		driver = new SqorrMobileDriver(config);
+		driver.loadApplication();
 		//bmProxy.proxyStart();
 		//extent = new ExtentReports(System.getProperty("user.dir")+"/test-output/"+"DMG_Analytics"+"_"+config.getProperty("device")+"_"+config.getProperty("platformName")+".html",true);
 		//extent.loadConfig(new File((System.getProperty("user.dir")+"/src/test/resources/environments/extent-config.xml")));
