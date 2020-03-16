@@ -2,13 +2,6 @@ package com.sqorr.play.core.driver;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.text.DateFormatSymbols;
-import java.text.DecimalFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.TimeUnit;
@@ -16,23 +9,14 @@ import java.util.concurrent.TimeUnit;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
-//import org.openqa.selenium.security.UserAndPassword;
-import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 
-import com.sqorr.play.core.constants.TestConstants;
 import com.sqorr.play.core.utils.Config;
 
 import io.appium.java_client.MobileElement;
-import io.appium.java_client.TouchAction;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.ios.IOSDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 
 /**
@@ -65,32 +49,25 @@ public class SqorrMobileDriver implements SqorrDriver, WebDriver {
 	 *                               on
 	 */
 	public void loadApplication() throws MalformedURLException {
-		// capabilities.setCapability("browserName","chrome");
 		capabilities.setCapability("platformName", config.getProperty("platformName"));
 		capabilities.setCapability("platformVersion", config.getProperty("platformVersion"));
 		capabilities.setCapability("deviceName", config.getProperty("deviceName"));
 		capabilities.setCapability("udid", config.getProperty("udid"));
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "UiAutomator1");
-		// capabilities.setCapability("newCommandTimeout",20000);
+		capabilities.setCapability("newCommandTimeout",20000);
+		//capabilities.setCapability("autoWebview",true);
 
 		capabilities.setCapability("appPackage", "com.sport.playsqorr");
 		capabilities.setCapability("appActivity", "com.sport.playsqorr.views.OnBoarding");
-		// capabilities.setCapability("app", app.getAbsolutePath());
 
-		// capabilities.setCapability("autoDismissAlerts", true);
-		// capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
+		// capabilities.setCapability("autoDismissAlerts", true);		
 
 		URL remoteUrl = new URL("http://" + config.getProperty("host") + "/wd/hub");
 		logger.debug("Remote URL is " + remoteUrl);
-
-		/*
-		 * if (config.getProperty("platformName").contains("iOS")) driver = new
-		 * IOSDriver<WebElement>(remoteUrl, capabilities); else
-		 */
+		
 		driver = new AndroidDriver<MobileElement>(remoteUrl, capabilities);
 
 		driver.manage().timeouts().implicitlyWait(50, TimeUnit.SECONDS);
-		// driver.get("https://google.com");
 	}
 
 	@Override
@@ -111,6 +88,11 @@ public class SqorrMobileDriver implements SqorrDriver, WebDriver {
 		return null;
 	}
 
+	
+	public WebElement findElementBYID(String locator) {
+		return driver.findElementById(locator);
+	}
+	
 	@Override
 	public <T extends WebElement> List<T> findElements(By by) {
 		// TODO Auto-generated method stub

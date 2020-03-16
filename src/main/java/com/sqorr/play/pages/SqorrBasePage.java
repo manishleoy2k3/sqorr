@@ -15,12 +15,12 @@ import com.sqorr.play.core.driver.SqorrMobileDriver;
  * SqorrBasePage is the super class for all the page classes
  */
 public class SqorrBasePage extends SqorrMobileDriver{
+	
 	public WebDriver driver;
-	  public final String CHAR_LIST = 
-		        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
-	  public final int RANDOM_STRING_LENGTH = 4;
-	private static final Logger logger = LogManager
-			.getLogger(SqorrBasePage.class.getName());
+	public final String CHAR_LIST = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890";
+	public final int RANDOM_STRING_LENGTH = 4;
+	  
+	private static final Logger logger = LogManager.getLogger(SqorrBasePage.class.getName());
 
 	public SqorrBasePage(WebDriver driver) {
 		//super(driver);

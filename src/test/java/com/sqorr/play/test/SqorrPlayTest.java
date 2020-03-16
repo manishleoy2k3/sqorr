@@ -62,8 +62,8 @@ public class SqorrPlayTest extends SqorrPlayBaseTest {
 	@Test(enabled = true, description = "Method to Login to sqorr play application")
 	public void sqorr_Test_Login() {
 
-		System.out.println(driver);
 		loginpage = new LoginPage(driver);
+		
 		loginpage.Login(loginpage.sqorrUser, loginpage.sqorrPwd);
 
 		// Assert.assertTrue(verifyValue("pageView","START_SESSION_THANKU_BI"),"Start
