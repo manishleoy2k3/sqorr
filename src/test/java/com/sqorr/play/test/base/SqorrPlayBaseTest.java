@@ -12,8 +12,8 @@ public class SqorrPlayBaseTest extends SqorrBaseTest {
 
 	private static final Logger logger = LogManager.getLogger(SqorrPlayBaseTest.class.getName());
 	
-	static DesiredCapabilities capabilities;// = new DesiredCapabilities();
-	public SqorrMobileDriver driver;// = new SqorrMobileDriver(config);
+	static DesiredCapabilities capabilities;
+	public SqorrMobileDriver driver;
 			
 	/**
 	 * @throws Exception
@@ -25,7 +25,6 @@ public class SqorrPlayBaseTest extends SqorrBaseTest {
 		capabilities = new DesiredCapabilities();
 		driver = new SqorrMobileDriver(config);
 		driver.loadApplication();
-		//bmProxy.proxyStart();
 		//extent = new ExtentReports(System.getProperty("user.dir")+"/test-output/"+"DMG_Analytics"+"_"+config.getProperty("device")+"_"+config.getProperty("platformName")+".html",true);
 		//extent.loadConfig(new File((System.getProperty("user.dir")+"/src/test/resources/environments/extent-config.xml")));
 		logger.info("********************Before Suite Ends (SqorrPlayBaseTest)****************");

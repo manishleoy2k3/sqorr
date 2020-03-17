@@ -1,18 +1,13 @@
 package com.sqorr.play.test.base;
 
-import java.lang.reflect.Method;
-
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.testng.annotations.BeforeSuite;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import com.sqorr.play.core.constants.TestConstants;
 import com.sqorr.play.core.utils.Config;
-import com.sqorr.play.core.utils.ExcelReader;
 
 
 public class SqorrBaseTest {

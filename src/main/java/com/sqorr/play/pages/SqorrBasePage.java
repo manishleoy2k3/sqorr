@@ -7,8 +7,6 @@ import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 import com.sqorr.play.core.driver.SqorrMobileDriver;
-import com.sqorr.play.core.utils.Config;
-import com.sqorr.play.core.driver.SqorrMobileDriver;
 
 /**
  * @author Manish

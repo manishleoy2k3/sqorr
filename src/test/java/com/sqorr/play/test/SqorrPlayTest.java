@@ -1,13 +1,8 @@
 package com.sqorr.play.test;
 
-import java.net.MalformedURLException;
-
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
-import org.testng.ITestResult;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sqorr.play.pages.LoginPage;
@@ -65,11 +60,11 @@ public class SqorrPlayTest extends SqorrPlayBaseTest {
 		loginpage = new LoginPage(driver);
 		
 		loginpage.Login(loginpage.sqorrUser, loginpage.sqorrPwd);
+		
+		//TODO: change this Assert to verify some page element after login
+		Assert.assertTrue(true);
 
-		// Assert.assertTrue(verifyValue("pageView","START_SESSION_THANKU_BI"),"Start
-		// Session Events Failed For Welcome page");
-
-		// logger.info("Login to sqorr application is successful");
+		logger.info("Login to sqorr application is successful");
 	}
 
 }
