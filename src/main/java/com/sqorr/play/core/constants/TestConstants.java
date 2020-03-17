@@ -17,6 +17,7 @@ public class TestConstants {
     public static final String FORELEMENTVISIBLEWAIT="20";
     public static final String ERRCHARCOUNT = "100";
 	public static final String KMS_BASEURL = null;
+	public static final String IOS = "iOS";
 	
 }
 
