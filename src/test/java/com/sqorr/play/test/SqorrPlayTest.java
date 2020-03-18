@@ -6,6 +6,7 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import com.sqorr.play.pages.LoginPage;
+import com.sqorr.play.pages.PromosPage;
 import com.sqorr.play.test.base.SqorrPlayBaseTest;
 
 public class SqorrPlayTest extends SqorrPlayBaseTest {
@@ -13,6 +14,7 @@ public class SqorrPlayTest extends SqorrPlayBaseTest {
 	private static final Logger logger = LogManager.getLogger(SqorrPlayTest.class.getName());
 
 	private LoginPage loginpage;
+	private PromosPage promospage;
 
 	/*
 	 * @BeforeClass public void objectInstances() {
@@ -65,6 +67,24 @@ public class SqorrPlayTest extends SqorrPlayBaseTest {
 		Assert.assertTrue(true);
 
 		logger.info("Login to sqorr application is successful");
+	}
+	
+	/**
+	 * Description: Test Method to verify click on Promos tab for checking Promos
+	 * 
+	 * @author Manish
+	 */
+	@Test(enabled = false, description = "Method to click on Promos tab to check Promos in sqorr app")
+	public void sqorr_Test_Promos() {
+
+		promospage = new PromosPage(driver);
+		
+		promospage.CheckPromos();
+		
+		//TODO: change this Assert to verify some page elements on Promos page
+		Assert.assertTrue(true);
+
+		logger.info("Promo page opening is successful");
 	}
 
 }

@@ -1,0 +1,9 @@
+2020-03-18 09:52:04 DEBUG SqorrBaseTest:42 - Environment properties are not provided by the user ... loading the default properties
+2020-03-18 09:52:04 INFO  SqorrBaseTest:43 - EXECUTION ENVIRONMENT ------ Android
+2020-03-18 09:52:04 DEBUG SqorrBaseTest:44 - Started execution with defaultenv.properties
+2020-03-18 09:52:04 INFO  SqorrPlayBaseTest:24 - ********************Before Suite Starts (SqorrPlayBaseTest)****************
+2020-03-18 09:52:04 DEBUG SqorrMobileDriver:89 - Remote URL is http://0.0.0.0:4723/wd/hub
+2020-03-18 09:52:10 INFO  SqorrPlayBaseTest:30 - ********************Before Suite Ends (SqorrPlayBaseTest)****************
+2020-03-18 09:52:46 INFO  SqorrPlayTest:69 - Login to sqorr application is successful
+2020-03-18 09:52:46 INFO  SqorrPlayBaseTest:35 - ********************After Suite Starts****************
+2020-03-18 09:52:47 INFO  SqorrPlayBaseTest:40 - ********************After Suite Ends****************
